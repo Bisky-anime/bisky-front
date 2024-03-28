@@ -1,0 +1,33 @@
+.root {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: fit-content;
+  padding: 0px 4px;
+  gap: 4px;
+
+  background-color: var(--bisky-300);
+  border-radius: var(--small-radius);
+  user-select: none;
+
+  &_icon {
+    padding: 0px 8px;
+  }
+
+  &_low {
+    background-color: var(--red);
+  }
+
+  &_medium {
+    background-color: var(--grey);
+  }
+
+  &_high {
+    background-color: var(--lime);
+  }
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}

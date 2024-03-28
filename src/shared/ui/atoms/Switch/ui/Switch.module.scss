@@ -1,0 +1,55 @@
+@import "@shared/styles/reusable.scss";
+
+.root {
+  width: 72px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  cursor: pointer;
+  border-radius: var(--full-radius);
+  background-color: var(--dark-200);
+
+  @include transition(background-color);
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 4px;
+
+    border-radius: var(--full-radius);
+    background-color: var(--bisky-400);
+
+    @include transition((background-color, width, transform, left));
+  }
+
+  &:active::after {
+    width: 40px;
+  }
+
+  &:has(.input:checked) {
+    background-color: var(--dark-100);
+
+    &::after {
+      left: calc(100% - 4px);
+      transform: translateX(-100%);
+      background-color: var(--bisky-100);
+    }
+  }
+
+  &:has(.input:disabled) {
+    background-color: var(--grey);
+    cursor: default;
+
+    &::after {
+      background-color: var(--light-400);
+    }
+
+    &:active::after {
+      width: 32px;
+    }
+  }
+}
